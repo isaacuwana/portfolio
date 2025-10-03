@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac Adeyeye - Chemical Engineer & Computational Scientist</title>
+    <meta name="description" content="Isaac Adeyeye — AI Engineer specializing in scientific discovery, environmental remediation, and process optimization. First Class Chemical Engineer.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --accent: #00ffaa;
+            --dark: #0a0a0a;
+            --dark-secondary: #1a1a1a;
+            --dark-tertiary: #2a2a2a;
+            --text: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-secondary) 50%, var(--dark-tertiary) 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 4px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--glass-border);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text), var(--accent));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 102, 255, 0.2);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-content {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .about-content h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--dark-secondary);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .skill-category h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Publications Section */
+        .publication-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--dark-secondary);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            background: var(--dark-tertiary);
+            transform: translateX(5px);
+        }
+
+        .publication-item h4 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .authors {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .authors strong {
+            color: var(--accent);
+        }
+
+        .journal, .conference {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .location {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 102, 255, 0.2);
+            color: var(--accent);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .research-metrics {
+            margin-top: 2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--dark-secondary);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .research-areas {
+            margin-top: 2rem;
+        }
+
+        .research-areas h4 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .research-tag {
+            padding: 0.4rem 1rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--dark-secondary);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .contact-info {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--dark-secondary);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: var(--dark-tertiary);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                top: 1rem;
+                right: 1rem;
+                left: 1rem;
+            }
+
+            nav ul {
+                justify-content: space-around;
+            }
+
+            nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .about-grid,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#publications" class="nav-link">Publications</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-up">
+            <div class="hero-avatar">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: bold; color: white;">I</div>
+            </div>
+            <h1>Isaac Adeyeye</h1>
+            <p class="hero-subtitle">Chemical Engineer & Computational Scientist</p>
+            <div class="hero-tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Process Engineering</span>
+                <span class="tag">Environmental Tech</span>
+                <span class="tag">Scientific Computing</span>
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-up">Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card fade-up">
+                <h3 class="project-title">Biochar Wastewater Treatment</h3>
+                <div class="project-meta">
+                    <span>Lead Researcher</span>
+                    <span>2024-2025</span>
+                    <span>Manuscript Under Review</span>
+                </div>
+                <p class="project-description">
+                    Developed date-seed derived biochar achieving 282 m²/g surface area for industrial wastewater treatment. Applied ML models to optimize pollutant removal efficiency, reducing analysis time by 40%.
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">FTIR Analysis</span>
+                    <span class="skill-tag">Design Expert</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-up">
+                <h3 class="project-title">Graph-based Chemical Reaction Networks</h3>
+                <div class="project-meta">
+                    <span>Lead Developer</span>
+                    <span>2024</span>
+                    <span>Research Tool</span>
+                </div>
+                <p class="project-description">
+                    Built computational toolkit for mapping and analyzing chemical reaction networks using graph neural networks to accelerate scientific discovery and reaction pathway optimization.
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">NetworkX</span>
+                    <span class="skill-tag">Graph ML</span>
+                    <span class="skill-tag">Chemical Informatics</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-up">
+                <h3 class="project-title">Waste-to-Energy Process Design</h3>
+                <div class="project-meta">
+                    <span>Lead Engineer</span>
+                    <span>2023-2024</span>
+                    <span>Award Winning</span>
+                </div>
+                <p class="project-description">
+                    Designed integrated waste-to-energy system with supercritical CO₂ turbine. Achieved 12% efficiency improvement through AI-powered optimization and heat integration analysis.
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Aspen Plus</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Process Optimization</span>
+                    <span class="skill-tag">Thermodynamics</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-up">
+                <h3 class="project-title">LLM-Generated Text Detection Classification System</h3>
+                <div class="project-meta">
+                    <span>ML Engineer</span>
+                    <span>2024</span>
+                    <span>Production API</span>
+                </div>
+                <p class="project-description">
+                    Developed BERT-based classification system achieving >95% F1-score for detecting AI-generated text. Deployed as production-ready API with real-time inference capabilities.
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">BERT</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">API Development</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-up">
+                <h3 class="project-title">Smart Agriculture AI (Nigeria)</h3>
+                <div class="project-meta">
+                    <span>Data Scientist</span>
+                    <span>2024</span>
+                    <span>Social Impact</span>
+                </div>
+                <p class="project-description">
+                    Built crop selection and yield optimization models focusing on profitable crops for Nigerian smallholders. Integrated climate data and market analysis for decision support.
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Time Series</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                    <span class="skill-tag">Agriculture Tech</span>
+                </div>
+            </div>
+
+            <div class="project-card fade-up">
+                <h3 class="project-title">Hydrocarbon Production Forecasting</h3>
+                <div class="project-meta">
+                    <span>Data Scientist</span>
+                    <span>2022-2023</span>
+                    <span>NNPC Energy</span>
+                </div>
+                <p class="project-description">
+                    Applied time-series analysis and decline curve analysis for production forecasting. Integrated Petrel simulation data with predictive models for enhanced reservoir management.
+                </p>
+                <div class="project-skills">
+                    <span class="skill-tag">Time Series</span>
+                    <span class="skill-tag">Petrel</span>
+                    <span class="skill-tag">Reservoir Engineering</span>
+                    <span class="skill-tag">Predictive Modeling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section">
+        <h2 class="section-title fade-up">Publications & Research</h2>
+        
+        <div class="about-grid">
+            <div class="about-content fade-up">
+                <h3>Journal Publications</h3>
+                
+                <div class="publication-item">
+                    <h4>Biochar in Anaerobic Biofiltration for Wastewater Purification</h4>
+                    <p class="authors">Adesina, A. A., <strong>Adeyeye, I. U.</strong>, Okuneye, O. E., & Abdulkareem, Y. T.</p>
+                    <p class="journal"><em>Global Journal of Engineering and Technology Advances</em>, 22(3), 097–112 (2025)</p>
+                    <p class="publication-type">Review Paper</p>
+                </div>
+
+                <div class="publication-item">
+                    <h4>Essential Oils Extraction from Eucalyptus Species Optimization</h4>
+                    <p class="authors">Adesina, A. A., <strong>Adeyeye, I. U.</strong>, Dona, D. U., Wheto, B. M., & Lamina, B. R.</p>
+                    <p class="journal"><em>Engineering and Technology Journal</em>, 10(3), 3990–3997 (2025)</p>
+                    <p class="publication-type">Experimental Research</p>
+                </div>
+
+                <div class="publication-item">
+                    <h4>Solar-Powered Timer Pump for Irrigation Development</h4>
+                    <p class="authors">Adesina, A. A., <strong>Adeyeye, I. U.</strong>, Bennard, O. K., Bashir, A. A., & Gbenga, A. J.</p>
+                    <p class="journal"><em>Engineering and Technology Journal</em>, 10(3), 3998–4006 (2025)</p>
+                    <p class="publication-type">Engineering Design</p>
+                </div>
+
+                <div class="publication-item">
+                    <h4>Unlocking Non-Associated Gas Reservoirs for Nigeria's Energy Future</h4>
+                    <p class="authors">Chukwu, E., Emmanuel, F. O., <strong>Adeyeye, I. U.</strong>, & Chioma, M.</p>
+                    <p class="journal"><em>International Journal of Latest Technology in Engineering, Management & Applied Science</em> (2024)</p>
+                    <p class="publication-type">Energy Policy Research</p>
+                </div>
+            </div>
+            
+            <div class="about-content fade-up">
+                <h3>Conference Presentations</h3>
+                
+                <div class="publication-item">
+                    <h4>Transformative Hydrogen: Nuclear Integration in Oil & Gas Industry</h4>
+                    <p class="authors"><strong>Adeyeye, Isaac</strong></p>
+                    <p class="conference"><em>SPE Nigeria Annual International Conference and Exhibition</em></p>
+                    <p class="location">Lagos, Nigeria • August 2024</p>
+                    <p class="publication-type">Technical Paper</p>
+                </div>
+
+                <div class="publication-item">
+                    <h4>Revolutionizing LNG Production: Supercritical CO₂ Liquefaction</h4>
+                    <p class="authors"><strong>Adeyeye, Isaac</strong></p>
+                    <p class="conference"><em>Africa Student Paper Contest</em></p>
+                    <p class="location">2024</p>
+                    <p class="publication-type">Innovation Award</p>
+                </div>
+
+                <div class="research-metrics">
+                    <h3>Research Impact</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-number">4</div>
+                            <div class="metric-label">Journal Publications</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">2</div>
+                            <div class="metric-label">Conference Papers</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">3</div>
+                            <div class="metric-label">Research Areas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="research-areas">
+                        <h4>Core Research Focus</h4>
+                        <div class="research-tags">
+                            <span class="research-tag">Biochar & Water Treatment</span>
+                            <span class="research-tag">Process Optimization</span>
+                            <span class="research-tag">Energy Systems</span>
+                            <span class="research-tag">Sustainable Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title fade-up">About Me</h2>
+        
+        <div class="about-grid">
+            <div class="about-content fade-up">
+                <h3>Background</h3>
+                <p>First-Class Chemical Engineer from Lagos State University with expertise at the intersection of AI and process engineering. My research focuses on sustainable technologies, from biochar-based environmental remediation to AI-driven scientific discovery.</p>
+                
+                <h3>Education & Certifications</h3>
+                <p><strong>BSc Chemical & Polymer Engineering</strong><br>
+                Lagos State University (2019-2024) • First Class</p>
+                
+                <p><strong>Recent Certifications:</strong><br>
+                • Artificial Intelligence, New Horizon (2025)<br>
+                • Data Science, IBM (2024)</p>
+
+                <h3>Publications</h3>
+                <p><strong>Journal Publications (4):</strong></p>
+                <ul style="margin-left: 1rem; margin-bottom: 1rem;">
+                    <li style="margin-bottom: 0.5rem;">Biochar in anaerobic biofiltration for wastewater purification (Global Journal of Engineering, 2025)</li>
+                    <li style="margin-bottom: 0.5rem;">Essential oils extraction from Eucalyptus species optimization (Engineering and Technology Journal, 2025)</li>
+                    <li style="margin-bottom: 0.5rem;">Solar-powered irrigation timer pump development (Engineering and Technology Journal, 2025)</li>
+                    <li style="margin-bottom: 0.5rem;">Non-associated gas reservoirs for Nigeria's energy future (IJLTEMAS, 2024)</li>
+                </ul>
+                
+                <p><strong>Conference Papers (2):</strong> SPE Nigeria 2024 (Hydrogen-Nuclear Integration), Africa Student Paper Contest 2024 (Supercritical CO₂ LNG)</p>
+            </div>
+            
+            <div class="about-content fade-up">
+                <h3>Experience</h3>
+                <p><strong>Research Assistant</strong><br>
+                Lagos State University (2024-2025)<br>
+                Led predictive modeling for wastewater treatment optimization, automated data pipelines reducing analysis time by 40%.</p>
+                
+                <p><strong>Reservoir Engineer</strong><br>
+                NNPC Energy Services (2022-2023)<br>
+                Applied machine learning for hydrocarbon production forecasting using advanced reservoir simulation tools.</p>
+
+                <h3>Recognition</h3>
+                <p>• Department prizes for waste-to-energy project<br>
+                • Represented Lagos State University at NSChE regional competitions<br>
+                • First Class honors in Chemical Engineering</p>
+            </div>
+        </div>
+
+        <div class="skills-list">
+            <div class="skill-category fade-up">
+                <h4>AI & Machine Learning</h4>
+                <p>PyTorch, TensorFlow, Scikit-learn, Langchain, LangGraph, BERT, Transformers, NLP, Deep Learning, MLOps</p>
+            </div>
+            <div class="skill-category fade-up">
+                <h4>Engineering & Simulation</h4>
+                <p>Aspen Plus, MATLAB, Process Optimization, Thermodynamics, Heat Integration, Techno-economic Analysis</p>
+            </div>
+            <div class="skill-category fade-up">
+                <h4>Programming & Tools</h4>
+                <p>Python, SQL, C#, Git/GitHub, Azure, Jupyter, VS Code, Hugging Face, CI/CD</p>
+            </div>
+            <div class="skill-category fade-up">
+                <h4>Research & Analysis</h4>
+                <p>FTIR/SEM Analysis, Statistical Modeling, Feature Engineering, Time-Series Analysis, Scientific Writing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title fade-up">Get In Touch</h2>
+        
+        <div class="contact-content">
+            <div class="contact-form fade-up">
+                <h3 style="margin-bottom: 2rem; color: var(--accent);">Send a Message</h3>
+                <form action="https://formspree.io/f/xgvnopab" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info fade-up">
+                <h3 style="margin-bottom: 2rem; color: var(--accent);">Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        <a href="mailto:isaacak88@gmail.com" style="color: var(--text-secondary); text-decoration: none;">isaacak88@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <strong>Phone</strong><br>
+                        <a href="tel:+2348100404074" style="color: var(--text-secondary); text-decoration: none;">+234 810 040 4074</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <strong>LinkedIn</strong><br>
+                        <a href="http://www.linkedin.com/in/iadeyeye" target="_blank" style="color: var(--text-secondary); text-decoration: none;">linkedin.com/in/iadeyeye</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <div>
+                        <strong>GitHub</strong><br>
+                        <a href="https://github.com/isaacuwana" target="_blank" style="color: var(--text-secondary); text-decoration: none;">github.com/isaacuwana</a>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/isaacuwana" class="social-link" target="_blank">💻</a>
+                    <a href="http://www.linkedin.com/in/iadeyeye" class="social-link" target="_blank">💼</a>
+                    <a href="mailto:isaacak88@gmail.com" class="social-link">📧</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // Update active nav state
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Smooth scroll
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // CTA button scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Update navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section, .hero');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', (e) => {
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            // Let the form submit naturally to Formspree
+            // The page will redirect to Formspree's success/confirmation page
+        });
+
+        // Initialize particles on load
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) rotateX(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0)';
+            });
+        });
+
+        // Typing animation for hero subtitle
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing animation after a short delay
+        setTimeout(() => {
+            const subtitle = document.querySelector('.hero-subtitle');
+            const originalText = subtitle.textContent;
+            typeWriter(subtitle, originalText, 100);
+        }, 1000);
+    </script>
+
+</body>
+</html>
